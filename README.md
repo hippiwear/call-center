@@ -1,3 +1,3 @@
 # call-center
-#Hippolyte Architect of this project : 
-#date :01/03/2025
+# Hippolyte Architect of this project. 
+# Date: 01/03/2025
