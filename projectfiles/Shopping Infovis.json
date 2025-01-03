@@ -1,0 +1,355 @@
+{
+  "Version": "2019-10-30",
+  "StartAction": "0540d122-3fa5-4076-ba29-c4367d7bec50",
+  "Metadata": {
+    "entryPointPosition": {
+      "x": -55.2,
+      "y": 52
+    },
+    "ActionMetadata": {
+      "last": {
+        "position": {
+          "x": 1414.4,
+          "y": -171.2
+        },
+        "isFriendlyName": true
+      },
+      "48053a4d-fd08-488b-8bcf-c1067b84a379": {
+        "position": {
+          "x": 1149.6,
+          "y": 64
+        },
+        "parameters": {
+          "AgentId": {
+            "displayName": "john (John Perry)"
+          }
+        },
+        "queue": {
+          "text": "john (John Perry)"
+        }
+      },
+      "7c0ad9fd-bb87-49f8-a00c-3b9fdb2d8dcc": {
+        "position": {
+          "x": 1772,
+          "y": 108
+        }
+      },
+      "Error": {
+        "position": {
+          "x": 442.4,
+          "y": 445.6
+        },
+        "isFriendlyName": true
+      },
+      "93534b47-396c-49dd-b857-1fc13849654e": {
+        "position": {
+          "x": 1139.2,
+          "y": -194.4
+        },
+        "parameters": {
+          "LambdaFunctionARN": {
+            "displayName": "OrderInquiryHandler"
+          }
+        },
+        "dynamicMetadata": {}
+      },
+      "Att": {
+        "position": {
+          "x": 834.4,
+          "y": -28.8
+        },
+        "isFriendlyName": true,
+        "conditions": [],
+        "conditionMetadata": [
+          {
+            "id": "541058ee-0939-49e7-92e0-8f945352a3a2",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "orders"
+          },
+          {
+            "id": "1bb13209-1459-4761-a7e4-c68b68b3ea98",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Inquiry"
+          },
+          {
+            "id": "2d52626a-08b9-4b13-b637-7061659c751d",
+            "operator": {
+              "name": "Equals",
+              "value": "Equals",
+              "shortDisplay": "="
+            },
+            "value": "Complains"
+          }
+        ]
+      },
+      "58c01861-5e5a-4fe4-8ccc-3f4adbdfe82a": {
+        "position": {
+          "x": 1149.6,
+          "y": 270.4
+        },
+        "parameters": {
+          "AgentId": {
+            "displayName": "Douglas (Douglas Smith)"
+          }
+        },
+        "queue": {
+          "text": "Douglas (Douglas Smith)"
+        }
+      },
+      "2666d6d4-05e6-4fb2-9400-9dbb57bfe659": {
+        "position": {
+          "x": 514.4,
+          "y": -193.6
+        },
+        "dynamicParams": []
+      },
+      "Timeout": {
+        "position": {
+          "x": 449.6,
+          "y": 250.4
+        },
+        "isFriendlyName": true
+      },
+      "0540d122-3fa5-4076-ba29-c4367d7bec50": {
+        "position": {
+          "x": 167.2,
+          "y": -214.4
+        },
+        "parameters": {
+          "LexV2Bot": {
+            "AliasArn": {
+              "displayName": "TestBotAlias",
+              "useLexBotDropdown": true,
+              "lexV2BotName": "intervisionBot"
+            }
+          },
+          "LexTimeoutSeconds": {
+            "Text": {
+              "unit": 60
+            }
+          }
+        },
+        "useLexBotDropdown": true,
+        "lexV2BotName": "intervisionBot",
+        "lexV2BotAliasName": "TestBotAlias",
+        "conditionMetadata": []
+      }
+    },
+    "Annotations": [],
+    "name": "Shopping Infovis",
+    "description": "",
+    "type": "contactFlow",
+    "status": "PUBLISHED",
+    "hash": {}
+  },
+  "Actions": [
+    {
+      "Parameters": {
+        "Text": "\"Thank you, Jane Doe. Your order for 2 black leather jackets in Medium has been placed successfully. You will receive a confirmation message shortly at 555-123-4567. Is there anything else I can assist you with today?\"\n"
+      },
+      "Identifier": "last",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "7c0ad9fd-bb87-49f8-a00c-3b9fdb2d8dcc",
+        "Errors": [
+          {
+            "NextAction": "7c0ad9fd-bb87-49f8-a00c-3b9fdb2d8dcc",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "AgentId": "arn:aws:connect:us-east-1:872643718153:instance/07cb4a21-f334-4ef9-a311-d2af61fe1d3b/agent/959dda96-f74d-40ca-b6ab-7d3b30bbf90b"
+      },
+      "Identifier": "48053a4d-fd08-488b-8bcf-c1067b84a379",
+      "Type": "UpdateContactTargetQueue",
+      "Transitions": {
+        "NextAction": "7c0ad9fd-bb87-49f8-a00c-3b9fdb2d8dcc",
+        "Errors": [
+          {
+            "NextAction": "Error",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {},
+      "Identifier": "7c0ad9fd-bb87-49f8-a00c-3b9fdb2d8dcc",
+      "Type": "DisconnectParticipant",
+      "Transitions": {}
+    },
+    {
+      "Parameters": {
+        "Text": "I'm sorry, I didn't get that. Please try again."
+      },
+      "Identifier": "Error",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "0540d122-3fa5-4076-ba29-c4367d7bec50",
+        "Errors": [
+          {
+            "NextAction": "7c0ad9fd-bb87-49f8-a00c-3b9fdb2d8dcc",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "LambdaFunctionARN": "arn:aws:lambda:us-east-1:872643718153:function:OrderInquiryHandler",
+        "InvocationTimeLimitSeconds": "3",
+        "ResponseValidation": {
+          "ResponseType": "STRING_MAP"
+        }
+      },
+      "Identifier": "93534b47-396c-49dd-b857-1fc13849654e",
+      "Type": "InvokeLambdaFunction",
+      "Transitions": {
+        "NextAction": "last",
+        "Errors": [
+          {
+            "NextAction": "Timeout",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "ComparisonValue": "$.Attributes.customerIntent"
+      },
+      "Identifier": "Att",
+      "Type": "Compare",
+      "Transitions": {
+        "NextAction": "Timeout",
+        "Conditions": [
+          {
+            "NextAction": "93534b47-396c-49dd-b857-1fc13849654e",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "orders"
+              ]
+            }
+          },
+          {
+            "NextAction": "48053a4d-fd08-488b-8bcf-c1067b84a379",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Inquiry"
+              ]
+            }
+          },
+          {
+            "NextAction": "58c01861-5e5a-4fe4-8ccc-3f4adbdfe82a",
+            "Condition": {
+              "Operator": "Equals",
+              "Operands": [
+                "Complains"
+              ]
+            }
+          }
+        ],
+        "Errors": [
+          {
+            "NextAction": "Timeout",
+            "ErrorType": "NoMatchingCondition"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "AgentId": "arn:aws:connect:us-east-1:872643718153:instance/07cb4a21-f334-4ef9-a311-d2af61fe1d3b/agent/7100f842-8bf2-400d-8b97-c6b987d337e8"
+      },
+      "Identifier": "58c01861-5e5a-4fe4-8ccc-3f4adbdfe82a",
+      "Type": "UpdateContactTargetQueue",
+      "Transitions": {
+        "NextAction": "7c0ad9fd-bb87-49f8-a00c-3b9fdb2d8dcc",
+        "Errors": [
+          {
+            "NextAction": "Timeout",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Attributes": {
+          "customerIntent": "{{Lex.ResponseAttributes.IntentName}}"
+        },
+        "TargetContact": "Current"
+      },
+      "Identifier": "2666d6d4-05e6-4fb2-9400-9dbb57bfe659",
+      "Type": "UpdateContactAttributes",
+      "Transitions": {
+        "NextAction": "Att",
+        "Errors": [
+          {
+            "NextAction": "Timeout",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "I'm sorry, I didn't hear your response. Can you please repeat that? Say 'Order,' 'Complaint,' or 'Inquiry."
+      },
+      "Identifier": "Timeout",
+      "Type": "MessageParticipant",
+      "Transitions": {
+        "NextAction": "2666d6d4-05e6-4fb2-9400-9dbb57bfe659",
+        "Errors": [
+          {
+            "NextAction": "0540d122-3fa5-4076-ba29-c4367d7bec50",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    },
+    {
+      "Parameters": {
+        "Text": "Welcome to Infovision Shopping. How can I assist  you today? Say Order, Complaint, or |Inquiry.",
+        "LexV2Bot": {
+          "AliasArn": "arn:aws:lex:us-east-1:872643718153:bot-alias/HD11ZT57Y1/TSTALIASID"
+        },
+        "LexTimeoutSeconds": {
+          "Text": "60"
+        }
+      },
+      "Identifier": "0540d122-3fa5-4076-ba29-c4367d7bec50",
+      "Type": "ConnectParticipantWithLexBot",
+      "Transitions": {
+        "NextAction": "Timeout",
+        "Errors": [
+          {
+            "NextAction": "Timeout",
+            "ErrorType": "InputTimeLimitExceeded"
+          },
+          {
+            "NextAction": "2666d6d4-05e6-4fb2-9400-9dbb57bfe659",
+            "ErrorType": "NoMatchingCondition"
+          },
+          {
+            "NextAction": "Timeout",
+            "ErrorType": "NoMatchingError"
+          }
+        ]
+      }
+    }
+  ]
+}
