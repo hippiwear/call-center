@@ -1,0 +1,60 @@
+
++-------------------------------------------------------------+
+|                       Start (Entry Point)                   |
++-------------------------------------------------------------+
+                              |
+                              v
++-------------------------------------------------------------+
+|I used  Get Customer Input for initial input. (Amazon Lex Bot) 
+                       |
+|  - Prompt: "Welcome to InterVision Shopping. How can I assist 
+     you today? Say 'Order,'        |
+|    'Complaint,' or 'Inquiry.'"                              |
+|  - Timeout: 30 seconds                                      |
+|  - Timeout Prompt: "I'm sorry, I didn't hear your response. |
+|    Can you please repeat that? Say 'Order,' 'Complaint,' or |
+|    'Inquiry.'"                                              |
+|  - Error Message: "I'm sorry, I didn't catch that. Could    |
+|    you please repeat? Say 'Order,' 'Complaint,' or          |
+|    'Inquiry.'"                                              |
++-------------------------------------------------------------+
+          |                   
+        Default             
+          |                             v                    v                    v
++-------------------------+ +---------------------+ +---------------------+
+| I used the Set Contact Attributes to capture the Lex intent  | | |
+| (customerIntent) (intent name          |
++-------------------------+ +---------------------+ +---------------------+
+          |                    
+          v                    |                    
++-----------------------------+                    
+|I used Check Contact Attributes with conditions to route the call to the respective queues or Lambda Function: the condition is:   |                    
+|  - If "customerIntent Equals 'Order'" → Invoke Lambda and process the order based on the information the customer will give.   
+|  - If "customerIntent Equals 'Complaint'" → Set Working Queue, Agent Douglas Smith will answer the call and disconnect it at the end.
+|  - If "customerIntent Equals 'Inquiry'" → Set Working Queue, Agent John Perry will answer the call and disconnect it at the end.
++-----------------------------+
+      |           |           |
+      v           v           v
++----------+  +-------------------+  +-------------------+
+| Invoke Lambda   |  | Set Working Queue |  | Set Working Queue |
+| Function |  | (Complaints Agent)|  | (Inquiries Agent) |
++----------+  +-------------------+  +-------------------+
+          |
+          v
++-----------------------------+
+| Post-Order Confirmation     |
+| -   Thank you, Mike Harris. 
+Your order for 2 black leather 
+jackets in Medium has been placed
+ successfully. You will receive a 
+confirmation message shortly at 
+555-123-4567.
+ Is there anything else I can
+ assist you with today?                                                                    |
++-----------------------------+
+          |
+          v
++-----------------------------+
+|             End             |
++-----------------------------+
+
