@@ -34,14 +34,14 @@ Custom prompts ensure a natural flow for user interactions.
 Amazon Connect call flows define the customer journey from the initial call to resolution.
 
 ### 3.2 Queues Configuration
-- **Order Queue**: Handles order-related queries.
+- **Order Queue**: Invoke lambda function.
 - **Inquiry Queue**: Manages general questions.
 - **Complaint Queue**: Resolves customer complaints.
 
 ### 3.3 Agent Profiles
 Agent profiles ensure calls are routed to the appropriate personnel:
-- **John Perry**: Order specialist.
-- **Douglas Smith**: Inquiry and complaint handler.
+- **John Perry**: Inquiry handler.
+- **Douglas Smith**:git  complaint handler.
 
 ---
 
