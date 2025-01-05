@@ -188,7 +188,7 @@ Functional testing ensures Lambda integration works as expected.
 ## 8. Final Flow Visualization
 
 ### 8.1 Visual Representation of the Flow
-The final flow diagram consolidates all elements of the call center setup.
+The final flow diagram consolidates all elements of the call center setup. (see image infovis im.png in projectfiles)
 
 ### 8.2 Key Highlights
 Highlights of the implementation include efficient routing and robust integration.
