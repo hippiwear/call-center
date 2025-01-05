@@ -150,7 +150,7 @@ To test the Lambda function:
 ## 5. Flow Visualization
 
 ### 5.1 Overall Flow Diagram
-A high-level diagram illustrates the end-to-end flow of the call center.
+A high-level diagram illustrates the end-to-end flow of the call center. (see image infovis im.png in projectfiles)
 
 ### 5.2 Detailed Steps with Blocks
 Each block in the flow is explained, highlighting key actions.
@@ -195,14 +195,5 @@ Highlights of the implementation include efficient routing and robust integratio
 
 ---
 
-## 9. Appendix
 
-### 9.1 Agent Login Credentials
-Credentials for agents to access the system.
-
-### 9.2 Sample Prompts
-Examples of prompts used in Amazon Lex configurations.
-
-### 9.3 Troubleshooting Tips
-Guidance for resolving common issues during implementation.
 
